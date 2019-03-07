@@ -1,0 +1,46 @@
+{
+  "name": "reqdef",
+  "description": "Require a module that uses either 'export default' or 'module.exports'",
+  "homepage": "https://github.com/flesch/reqdef",
+  "version": "1.0.0",
+  "main": "./dist/index.js",
+  "author": {
+    "name": "John Flesch",
+    "email": "john@fles.ch",
+    "url": "https://fles.ch/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/flesch/reqdef.git"
+  },
+  "bugs": {
+    "url": "https://github.com/flesch/reqdef/issues"
+  },
+  "keywords": [
+    "require",
+    "export",
+    "default",
+    "unwrap"
+  ],
+  "dependencies": {
+    "to-querystring": "^1.1.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.3.3",
+    "@babel/preset-env": "^7.3.1",
+    "babel-plugin-add-module-exports": "^1.0.0",
+    "prettier": "^1.16.4"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "build": "babel src --out-dir dist",
+    "prepare": "npm run prettier && npm run build",
+    "prettier": "prettier --write \"**/*.js\"",
+    "test": "npx babel --exclude add-module-exports test/func.mjs --out-file test/func.js && node ./test"
+  },
+  "license": "MIT"
+}
